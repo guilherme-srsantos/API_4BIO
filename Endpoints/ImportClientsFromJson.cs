@@ -1,6 +1,6 @@
 ﻿namespace API_4BIO.Endpoints
 {
-    public class EditClient
+    public class ImportClientsFromJson
     {
     }
 }
