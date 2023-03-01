@@ -39,7 +39,7 @@ namespace API_4BIO.BusinessLogic.Validators
                 .WithMessage("Número do logradouro não pode estar vazio!");
 
             RuleFor(c => c.Client.Address.StreetName)
-                .MaximumLength(5)
+                .MinimumLength(5)
                 .WithMessage("Nome do logradouro deve conter ao menos 5 caracteres")
                 .NotEmpty()
                 .WithMessage("Nome do logradouro não pode estar vazio!");
