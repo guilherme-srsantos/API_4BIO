@@ -1,12 +1,10 @@
 ﻿using FastEndpoints;
-using FluentValidation;
 
 namespace API_4BIO.Models.Request
 {
-    public class CreateClientRequest
+    public class EditClientRequest
     {
         [FromBody]
         public Client Client { get; set; }
     }
-
 }
