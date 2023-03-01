@@ -46,7 +46,9 @@ namespace API_4BIO.Data
 
         public async Task<Client?> UpdateClientAsync(Client request, CancellationToken ct)
         {
-            var client = await _dbContext.Clients.FirstOrDefaultAsync(c => c.ClientId == request.ClientId) ?? throw new Exception("Cliente não encontrado!");
+            var client = await _dbContext.Clients
+                .AsNoTracking()
+                .FirstOrDefaultAsync(c => c.ClientId == request.ClientId, ct) ?? throw new Exception("Cliente não encontrado!");
             _dbContext.Update(request);
             if (await _dbContext.SaveChangesAsync(ct) > 0) return request;
             return null;
@@ -81,6 +83,14 @@ namespace API_4BIO.Data
                             .Include(c => c.Address)
                             .Include(c => c.ContactInfo)
                             .Where(c => c.ContactInfo.Email == filter.FilterValue);
+                    clients = await query.ToListAsync(ct);
+                    break;
+
+                case FilterType.Id:
+                    query = query
+                            .Include(c => c.Address)
+                            .Include(c => c.ContactInfo)
+                            .Where(c => c.ClientId.ToString() == filter.FilterValue);
                     clients = await query.ToListAsync(ct);
                     break;
 
