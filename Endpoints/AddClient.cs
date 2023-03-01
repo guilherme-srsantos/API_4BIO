@@ -1,5 +1,6 @@
 ﻿using API_4BIO.BusinessLogic.Validators;
 using API_4BIO.Data.Interfaces;
+using API_4BIO.Documentation;
 using API_4BIO.Models.Request;
 using API_4BIO.Models.Response;
 
@@ -15,7 +16,7 @@ namespace API_4BIO.Endpoints
         }
         public override void Configure()
         {
-            Post("/cliente/criar");
+            Post("/clientes/criar");
             AllowAnonymous();
             Validator<CreateClientValidator>();
         }

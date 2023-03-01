@@ -16,6 +16,7 @@ namespace API_4BIO.Endpoints
         {
             Delete("/clientes/remover/{ClientId}");
             AllowAnonymous();
+
         }
 
         public override async Task HandleAsync(DeleteClientRequest req, CancellationToken ct)

@@ -2,5 +2,6 @@
 {
     public class FileImportResponse
     {
+        public List<Guid> ImportedClients { get; set; }   
     }
 }

@@ -2,9 +2,9 @@
 {
     public enum FilterType
     {
+        Id,
         Name,
         CPF,
-        RG,
         Email
     }
 

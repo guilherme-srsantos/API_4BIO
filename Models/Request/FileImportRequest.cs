@@ -2,5 +2,6 @@
 {
     public class FileImportRequest
     {
+        public IFormFile JsonFile { get; set; } 
     }
 }
